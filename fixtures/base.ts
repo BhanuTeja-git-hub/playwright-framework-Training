@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
 
@@ -6,4 +6,4 @@ test.beforeEach(async ({ page }) => {
 
 });
 
-export { test, expect }
+export { test, expect, type Page }

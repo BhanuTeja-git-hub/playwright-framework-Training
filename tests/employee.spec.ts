@@ -13,22 +13,22 @@ test.describe("Employee management tests", () => {
     await page.locator("//a[text()='Add Employee']").click()
 
     //enter firstname as john
-    await page.locator("//input[@name='firstName']").click()
+    await page.locator("//input[@name='firstName']").fill('John')
 
     //enter middle name as w
-    await page.locator("//input[@name='middleName']").click()
+    await page.locator("//input[@name='middleName']").fill('W')
 
     //enter lastname as wick
-    await page.locator("//input[@name='lastName']").click()
+    await page.locator("//input[@name='lastName']").fill('Wick')
 
     //click on save
     await page.locator("//button[contains(normalize-space(),'Save')]").click()
-
+    await page.waitForTimeout(5000);
     //validate profile name - john wick
-    await page.locator("").click()
-
+    await expect(page.locator("//h6[text()='John Wick']")).toHaveText('John Wick')
+    
     //validate firstname in the textbox 
-    //await expect.soft(page.locator("xpath=//input[@name='username']")).toHaveAttribute('value', 'john')
+    await expect(page.locator("xpath=//input[@name='firstName']")).toHaveValue('John')
    
   });
 })
